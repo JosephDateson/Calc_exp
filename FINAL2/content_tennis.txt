@@ -1,0 +1,16 @@
+3
+{0,1,2}
+IF(percell(i,s_i>r_i),1,0)
+IF(TRUE,percellcost(i,-s_i*0.33),0)
+IF(percell(i,s_i=r_i),0.5,0)
+not Strong
+Strong
+IF(MAX(s)=cell(s_1),"Strong","not Strong")
+1
+2
+3
+4
+5
+6
+0
+IF(SUM(s)=0,"0",IF(SUM(s)=1,"1",IF(SUM(s)=2,"2",IF(SUM(s)=3,"3",IF(SUM(s)=4,"4",IF(SUM(s)=5,"5","6"))))))

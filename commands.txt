@@ -1,0 +1,7 @@
+conda create --name final python=2
+activate final
+python manage.py runserver
+conda install -c anaconda django
+cd polls
+python setup.py install
+conda install -c anaconda numpy 

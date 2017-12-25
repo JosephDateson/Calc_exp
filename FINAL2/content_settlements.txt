@@ -1,0 +1,8 @@
+(1) (2) (3) (4) (5) (1,2) (2,3) (3,4) (4,5)
+IF(exists(i,j,s_i=r_j),0,IF(LEN(s)=2,3,2))
+center
+not center
+IF(exists(i,s_i=3),"center","not center")
+one
+two
+IF(len(s)>1,"two","one")
