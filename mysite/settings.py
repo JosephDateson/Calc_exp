@@ -58,7 +58,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./polls/templates/Final2',],
+        'DIRS': ['./polls/templates/FINAL2',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
