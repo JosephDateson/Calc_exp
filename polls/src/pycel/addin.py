@@ -8,8 +8,8 @@ import win32api
 import webbrowser
 import os
 import win32com.client
-from pycel.excelwrapper import ExcelComWrapper
-from pycel.excelcompiler import ExcelCompiler
+from excelwrapper import ExcelComWrapper
+from excelcompiler import ExcelCompiler
 
 @xl_menu("Open log file", menu="PyXLL")
 def on_open_logfile():

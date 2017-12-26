@@ -5,20 +5,20 @@
 try:
     import win32com.client
     import pythoncom
-    from pycel.excelwrapper import ExcelComWrapper as ExcelWrapperImpl
+    from excelwrapper import ExcelComWrapper as ExcelWrapperImpl
 except:
     print "Can\'t import win32com -> switch from Com to Openpyxl wrapping implementation"
-    from pycel.excelwrapper import ExcelOpxWrapper as ExcelWrapperImpl
+    from excelwrapper import ExcelOpxWrapper as ExcelWrapperImpl
 
-import pycel.excellib
-from pycel.excellib import *
-from pycel.excelutil import *
+import excellib
+from excellib import *
+from excelutil import *
 from math import *
 from networkx.classes.digraph import DiGraph
 from networkx.drawing.nx_pydot import write_dot
 from networkx.drawing.nx_pylab import draw, draw_circular
 from networkx.readwrite.gexf import write_gexf
-from pycel.tokenizer import ExcelParser, f_token, shunting_yard
+from tokenizer import ExcelParser, f_token, shunting_yard
 import cPickle
 import logging
 import networkx as nx
@@ -276,7 +276,7 @@ class FunctionNode(ASTNode):
         self.numargs = 0
 
         # map  excel functions onto their python equivalents
-        self.funmap = pycel.excellib.FUNCTION_MAP
+        self.funmap = excellib.FUNCTION_MAP
 
     def emit(self, ast, context=None):
         fun = self.tvalue.lower()

@@ -7,7 +7,7 @@ from datetime import datetime
 from math import log
 from decimal import Decimal, ROUND_HALF_UP
 import re
-from pycel.excelutil import (
+from excelutil import (
     flatten, 
     split_address, 
     col2num, 
