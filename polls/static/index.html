@@ -1,0 +1,521 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<form name="main" action="http://127.0.0.1:8000/polls/" method="post" target="_blank">
+<div class="container">
+    <div class="row">
+		
+		<div class="well-title">
+			<h2 align=center>Multidimensional Equilibrium Calculator</h2>
+		</div>
+	
+		
+        <div class="col-sm-6">
+                    <!-- Form start -->
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<b>Strategies</b> 
+							<a href="#" data-toggle="popover" title="Strategies panel" data-content="The strategies can be defined manually or be generated automatically.">
+							  <span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+						</div>
+						<script>
+						$(document).ready(function(){
+							$('[data-toggle="popover"]').popover(); 
+						});
+						</script>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<a data-toggle="collapse" href="#collapse1">
+									<b>Click to manually insert Strategies</B></a>
+								<a href="#" data-toggle="popover" title="How to use the manual panel?" data-content="Enter all possible strategy vectors in your game.">
+							  <span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+							</div>
+
+							
+							<div id="collapse1" class="panel-collapse  collapse">
+								<div class="panel-body">
+								<div class="col-sm-10">
+
+											<div ><b>Insert all strategies in one line</b>
+									</div>
+									
+								</div>
+									<div class="col-sm-2 nopadding">
+
+										<div class="form-group">
+											<h6></h6>
+										</div>
+									</div>
+									<div class="col-sm-12 nopadding">
+
+										<div class="form-group">
+											<input type="text" class="form-control" id="if_cond" name="strategies_vector_single" value="" placeholder="All Vectors: (5) (1,2)">
+										</div>
+									</div>
+
+								</div>	
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<a data-toggle="collapse" href="#collapse2"><b>Strategies generator</B></a>
+								<a href="#" data-toggle="popover" title="How to use the generator?" data-content="The calculator can automatically generate the feasible set of strategies.
+n is the length of the strategy vector - enter a natural number that would define the number of coordinates in the strategy vector.
+You can exhaustively define what numbers are allowed as coordinates in the vector or you can set an upper or lower bound in integers.
+It is possible to set constraints on feasible strategies using functions. (see functions tab)
+  The strategy vector is defined as follows: s=(s1,...,sn)">
+								  <span class="glyphicon glyphicon-question-sign"></span>
+								</a>
+							</div>
+
+							
+							<div id="collapse2" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-12">
+											
+											<div class="col-sm-1 control-label" >n:=</div> 
+											<div class="input-group input-group-sm">
+												<input name="strategies_vector_length" placeholder="Fill vector's length" class="form-control"  type="text">
+											</div>
+										</div>
+										<!--
+										<div class="col-sm-10">
+											<div class="well-block">
+												<div class="well-title">									
+													<div class="col-sm-1 control-label" >s<sub>i</sub><font face="Symbol">&#206;</font></div> 
+													<div class="input-group input-group-sm">
+														<div class="form-group">
+														<div class="input-group input-group-sm">
+															<select class="form-control" id="educationDate" name="strategies_super_set">
+
+																<option value="integer_num"><span class="texhtml">ℤ</span></option>
+																<option value="real_num"><span class="texhtml">ℝ</span></option>
+															</select>
+														</div>
+													</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										-->
+									</div>
+									<br>
+								
+								
+									<div class="col-sm-1 nopadding"  style="width:8% ">
+										si<font size="4" face="Symbol">&#206;{</font>
+									</div>
+									<div class="col-sm-4" >
+										
+										
+										<div class="input-group input-group-sm">
+										
+											
+											<input id ="strategies_full_set" name="strategies_full_set" placeholder="Extensive definition e.g. 1,2,3,4 " class="form-control"  type="text"  onKeyup="block_box_content('strategies_full_set','strategies_lower_bound','strategies_upper_bound');">
+										</div>
+										
+									</div>
+									<div class="col-sm-1 control-label" style="width:4% " >
+										<font size="4"  face="Symbol">}</font>
+									</div>
+									<div class="col-sm-1" style="width:8% ">
+										<b>OR</b>
+									</div>
+									<div class="col-sm-1" style="width:17% " >
+										<div class="input-group input-group-sm">
+											<input id="strategies_lower_bound" name="strategies_lower_bound" placeholder="Entry's lower bound" class="form-control"  type="text" onKeyup="block_box_content('strategies_lower_bound','strategies_full_set');">
+										</div>
+									</div>
+									<div class="col-sm-1"  style="width:11% " >
+										
+										<font face="Symbol" size="2">&#163;</font> si<font face="Symbol">&#163;</font> 
+									</div>
+									<div class="col-sm-1" style="width:17% " >
+										<div class="input-group input-group-sm">
+											<input id="strategies_upper_bound" name="strategies_upper_bound" placeholder="Entry's upper bound" class="form-control"  type="text" onKeyup="block_box_content('strategies_upper_bound','strategies_full_set');">
+										</div>
+									</div>
+
+									<div >
+										<br>
+										<br>
+										<div class="panel-heading"><b>Constraints</B></div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group" id="if_fields">
+											<div class="form-group remove_constraint1" id="remove_all_fields">
+												
+												<div class="col-sm-9 nopadding">
+													<div class="form-group">
+														<input type="text" class="form-control" id="strategies_constraint_1" name="strategies_constraint_1" value="" placeholder="Constraint">
+													</div>
+												</div>
+												<input type="hidden" name="country" value="Norway">
+												<div class="col-sm-1 nopadding">
+													<div class="form-group">
+														<div class="input-group input-group-sm">
+															<div class="input-group input-group-sm-btn">
+																<button id="plus_button" class="btn btn-danger" type="button" onclick="remove_field('if_fields',1);"> 
+																	<span id="minus_button_glyphicon" class="glyphicon glyphicon-minus" aria-hidden="true"></span> 
+																</button>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<br>
+										<div class="col-sm-3 nopadding">
+											<div class="form-group">
+												<br>
+												<div class="input-group input-group-sm">
+													<div class="input-group input-group-sm-btn">
+														<button class="btn btn-success" type="button" onclick="add_field('if_fields');"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel-footer"><small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another if field</small>, <small>Press <span class="glyphicon glyphicon-minus gs"></span> to remove the field </small></div>
+
+							</div>
+						</div>
+				   </div>
+				   
+					<div class="panel panel-default">
+				
+						<div class="panel-heading">
+								<a data-toggle="collapse" href="#collapse3">
+									<b>Payoff function</B>
+								</a>
+							<a href="#" data-toggle="popover" title="How to use the payoff panel?" data-content="Define the payoffs players receive when each condition is satisfied. Conditions are set using excel or app-specific functions (see functions tab). Specify “otherwise” in the condition if there is a default payoff.
+							s:= First player's vector,     si:=Index i of vector s; r:= Second player's vector, ri:=Index i of vector r.">
+								  <span class="glyphicon glyphicon-question-sign"></span>
+								</a>
+						</div>
+						<div class="panel-collapse collapse in" id="collapse3">
+							<div class="panel-body" id="if_fields_payment">
+								
+								<div class="col-sm-12">
+									<div class="col-sm-1 nopadding">
+										<div class="form-group">
+										<br>
+											<h5>u<sub>1</sub>(s,r)=</h5>
+											
+
+										</div>
+									</div>
+									<div class="col-sm-1 nopadding">
+										<div class="form-group">
+											<canvas id="myCanvas" width="50" height="70"></canvas>
+										</div>
+									</div>
+									<div class="form-group" id="all_ifs">
+										<div class="form-group remove_class1" id="remove_all_fields">
+											<div class="col-sm-3 nopadding">
+												<div class="form-group">
+													<input type="text" class="form-control" id="if_res" name="payment_if_res_1" value="" placeholder="payment">
+												</div>
+											</div>
+											<div class="col-sm-5 nopadding">
+												<div class="form-group">
+													<input type="text" class="form-control" id="if_cond" name="payment_if_cond_1" value="" placeholder="condition">
+												</div>
+											</div>
+											
+											<div class="col-sm-1 nopadding">
+												<div class="form-group">
+													<div class="input-group input-group-sm">
+														<div class="input-group input-group-sm-btn">
+															<button id="plus_button" class="btn btn-danger" type="button" onclick="remove_field('if_fields_payment',1,brackets_name='myCanvas');"> 
+																<span id="minus_button_glyphicon" class="glyphicon glyphicon-minus" aria-hidden="true"></span> 
+															</button>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2 nopadding">
+										<div class="form-group">
+											<br>
+												<div class="input-group input-group-sm">
+													<div class="input-group input-group-sm-btn">
+														<button id="plus_button" class="btn btn-success" type="button" onclick="add_field('if_fields_payment',brackets_name='myCanvas');"> 
+															<span id="plus_button_glyphicon" class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+														</button>
+													</div>
+
+												</div>
+										</div>
+									</div>
+								</div>
+							</div>	
+							
+							<div class="panel-footer"><small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another if field</small>, <small>Press <span class="glyphicon glyphicon-minus gs"></span> to remove the field </small></div>
+						</div>
+					</div>
+				</div>
+			<!-- form end -->
+            
+        </div>
+        <div class="col-sm-6">
+			
+	
+            <div class="well-block">
+
+                    <!-- Form start -->
+                    <div class="row">
+			<div class="panel with-nav-tabs panel-default">
+				<div class="panel-heading">
+					<a data-toggle="collapse" href="#collapse4">
+						<b>Control panel</B>
+					</a>
+				</div>
+				<div class="panel-collapse collapse in" id="collapse4">
+					<div class="panel-heading">
+							<ul class="nav nav-tabs">
+								
+								<li class="active"><a href="#tab1default" data-toggle="tab">A short explanation</a></li>
+								<li><a href="#tab2default" data-toggle="tab">Examples</a></li>
+								<!--<li><a href="#tab3default" data-toggle="tab">Useful functions</a></li>-->
+								<li><a href="#tab4default" data-toggle="tab">Down\upload</a></li>
+								
+							</ul>
+					</div>
+					<div class="panel-body">
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="tab1default">This calculator allows users to further explore the framework of multi-dimensional reasoning in symmetric two-player strategic interactions as defined by Arad and Rubinstein’s <a href="http://arielrubinstein.tau.ac.il/papers/md-equ.pdf">paper</a>.  
+							The model suggests that each player classifies the strategies along a number of dimensions and makes a decision in each dimension based on the profile of characteristics he believes each of the other players will choose.
+							The game is defined by the strategies, payoff functions and dimensions you choose. Clicking Calculate! will find any local and global multi-dimensional equilibria for those settings. 
+							The calculator supports basic excel functions. Additional app-specific functions are defined in the functions tab.
+							Notice that you can easily input examples from the paper – Settlements, Blotto, Tennis – in the example tab.
+							</div>
+							<div class="tab-pane fade" id="tab2default">
+								<div class="btn-group">
+									Press the example you wish to calculate. Its settings will be automatically defined in the calculator. Clicking Calculate! will find any local and global multi-dimensional equilibria for the example.
+								  <br>
+								  <br>
+								  <button type="button" class="btn btn-info" onClick="load_example('Settlements')">Settlements</button>
+								  <button type="button" class="btn btn-info" onClick="load_example('Blotto_loc')">Blotto w\ location</button>
+								  <button type="button" class="btn btn-info" onClick="load_example('Blotto_center')">Blotto w\ center</button>
+								  <button type="button" class="btn btn-info" onClick="load_example('Tennis')">Tennis</button>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="tab3default">functions</div>
+							<div class="tab-pane fade" id="tab4default">
+								<div class="btn-group-vertical">
+									<label class="btn btn-default">
+										Browse for your file<input type="file" id="file-input" hidden>
+									</label>	
+									<button id="load_btn" type="button" class="btn btn-danger disabled" >Load Now</button>
+									<div class="input-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-download-alt"></span></span>
+											<input id="save_name" type="text" class="form-control" placeholder="Name of file to save e.g. 'my_edited_eq_setup'">
+									</div>
+									<button type="button" class="btn btn-primary" onClick="save('inter.html', '<html></html>')" >Download Now</button>
+								</div>
+							</div>
+						</div>
+						
+							
+					</div>
+				</div>
+				
+			</div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+								<a data-toggle="collapse" href="#collapse5">
+									<b>Dimensions</B>
+								</a>
+								<a href="#" data-toggle="popover" title="How to use the dimensions panel?" data-content="The calculator supports games with two dimensions - rows and columns. 
+									Each dimension can have multiple categories. Define a name for each category and the condition that needs to be satisfied by a strategy in order to be classified into that category.
+									Conditions are set using excel or app-specific functions (see functions tab). Specify “else” in the condition if there is a default category.
+									If you want to utilize only one-dimension in your game, leave the other dimension’s settings empty.">
+								  <span class="glyphicon glyphicon-question-sign"></span>
+								</a>
+							</div>
+							
+							<div id="collapse5" class="panel-collapse collapse in">
+								<div class="panel-body" >
+									<div class="col-sm-10" >
+										<div class="well-block">
+											<div class="well-title">
+												<div class="panel-heading">1<sup>st</sup> Dimension - Rows
+												</div>
+												<div class="panel-heading"><b>Categories names</b>
+												</div>
+												
+												
+											</div>
+										</div>
+										
+									</div>
+									<div class="col-sm-12" id="if_fields_dimension_rows_names">
+										<div class="col-sm-1 nopadding">
+											<div class="form-group">
+											<br>
+												<h5>name=</h5>
+											</div>
+										</div>
+										<div class="col-sm-1 nopadding">
+											<div class="form-group">
+												<canvas id="myCanvas2" width="50" height="70"></canvas>
+											</div>
+										</div>
+										<div class="form-group" id="all_ifs_categories_rows">
+											<div class="form-group remove_class_row1" id="remove_all_fields">
+												<div class="col-sm-3 nopadding">
+													<div class="form-group">
+														<input type="text" class="form-control" id="if_res" name="dimensions_row_category_name_1" value="" placeholder="Name">
+													</div>
+												</div>
+												<div class="col-sm-5 nopadding">
+													<div class="form-group">
+														<input type="text" class="form-control" id="if_cond" name="dimensions_row_if_cond_1" value="" placeholder='Condition'>
+													</div>
+												</div>
+												
+												<div class="col-sm-1 nopadding">
+													<div class="form-group">
+														<div class="input-group input-group-sm">
+															<div class="input-group input-group-sm-btn">
+																<button id="plus_button" class="btn btn-danger" type="button" onclick="remove_field('if_fields_dimension_rows_names',1,brackets_name='myCanvas2');"> 
+																	<span id="minus_button_glyphicon" class="glyphicon glyphicon-minus" aria-hidden="true"></span> 
+																</button>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-2 nopadding">
+											<div class="form-group">
+												<br>
+													<div class="input-group input-group-sm">
+														<div class="input-group input-group-sm-btn">
+															<button class="btn btn-success" type="button" onclick="add_field('if_fields_dimension_rows_names',brackets_name='myCanvas2');"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+														</div>
+
+													</div>
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								
+									<div class="col-sm-10">
+										<div class="well-block">
+											<div class="well-title">
+												<div class="panel-heading">2<sup>nd</sup> Dimension - Columns
+												</div>
+												<div class="panel-heading"><b>Categories names</b>
+												</div>
+												
+												
+											</div>
+										</div>
+										
+									</div>
+									<div class="col-sm-12" id="if_fields_dimension_columns_names">
+										<div class="col-sm-1 nopadding">
+											<div class="form-group">
+											<br>
+												<h5>name=</h5>
+											</div>
+										</div>
+										<div class="col-sm-1 nopadding">
+											<div class="form-group">
+												<canvas id="myCanvas3" width="50" height="70"></canvas>
+											</div>
+										</div>
+										<div class="form-group" id="all_ifs_categories_columns">
+											<div class="form-group remove_class_column1" id="remove_all_fields">
+												<div class="col-sm-3 nopadding">
+													<div class="form-group">
+														<input type="text" class="form-control" id="if_res" name="dimensions_column_category_name_1" value="" placeholder="Name">
+													</div>
+												</div>
+												<div class="col-sm-5 nopadding">
+													<div class="form-group">
+														<input type="text" class="form-control" id="if_cond" name="dimensions_column_if_cond_1" value="" placeholder='Condition'>
+													</div>
+												</div>
+																			
+												<div class="col-sm-1 nopadding">
+													<div class="form-group">
+														<div class="input-group input-group-sm">
+															<div class="input-group input-group-sm-btn">
+																<button id="plus_button" class="btn btn-danger" type="button" onclick="remove_field('if_fields_dimension_columns_names',1,brackets_name='myCanvas3');"> 
+																	<span id="minus_button_glyphicon" class="glyphicon glyphicon-minus" aria-hidden="true"></span> 
+																</button>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-2 nopadding">
+											<div class="form-group">
+												<br>
+													<div class="input-group input-group-sm">
+														<div class="input-group input-group-sm-btn">
+															<button class="btn btn-success" type="button" onclick="add_field('if_fields_dimension_columns_names',brackets_name='myCanvas3');"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+														</div>
+
+													</div>
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								</div>
+								<div class="panel-footer"><small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another if field</small>, <small>Press <span class="glyphicon glyphicon-minus gs"></span> to remove the field </small></div>
+
+							</div>
+
+							<br>
+							
+							
+                        </div>
+						<div class="panel-footer">
+							
+								<button type="button submit" class="btn btn-primary btn-group-justified">Calculate!</button>
+								<button type="button" class="btn btn-danger btn-group-justified" onClick="window.location.reload()" >Clear Calculator</button>
+							</div>
+                    </div>
+                <!-- form end -->
+            </div>
+			
+		</div>
+    </div>
+</div>
+
+
+
+
+
+<script src="add_button.js"></script>
+<script src="curly_brackets.js"></script>
+<script src="load_n_save.js"></script>
+<script>curly_brackets_generation(1.9,"myCanvas");</script>
+<script>curly_brackets_generation(1.9,"myCanvas2");</script>
+<script>curly_brackets_generation(1.9,"myCanvas3");</script>
+<script>document.getElementById('file-input').addEventListener('change', load_file, false);</script>
+</form>
+
+
+</html>

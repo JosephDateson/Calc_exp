@@ -29,6 +29,14 @@ HTML_END_TEXT="</div> </div><!-- /container --> <script src='http://ajax.googlea
 HTML_HEADER_TEXT = HTML_HEADER_TEXT.replace("#date#",time.strftime("%H:%M %d/%m/%y"))
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+from django.shortcuts import render_to_response, render
+from django.http import HttpResponse
+from django.template import loader
+def empty_url(request):
+    context = {
+        'latest_question_list': 'Hello',
+    }
+    return render(request,"index.html", context)
 def not_strictly_increasing(L):
     return (all(x <= y for x, y in zip(L, L[1:])) and any(x < y for x, y in zip(L, L[1:])))
 

@@ -1,0 +1,125 @@
+,Partitions of strategies into cells ,one,two
+0,center,3,"(3, 4) (2, 3)"
+1,not center,2 5 1 4,"(1, 2)* (4, 5)"
+,,,
+,,,
+"(3,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,center,0,0
+2,center,1,1.5
+,,,
+,,,
+"(3, 4)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,center,0,0
+2,center,1,1.5
+,,,
+,,,
+"(2, 3)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(2,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(5,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(1,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(4,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,1.5
+2,not center,1,1.5
+,,,
+,,,
+"(1, 2)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,1.5
+2,not center,1,1.5
+,,,
+,,,
+"(4, 5)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,center,0,0
+2,center,2,3
+,,,
+,,,
+"(3,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,center,0,0
+2,center,1,1.5
+,,,
+,,,
+"(3, 4)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,center,0,0
+2,center,1,1.5
+,,,
+,,,
+"(2, 3)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(2,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(5,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(1,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,2.25
+2,not center,1.5,1.5
+,,,
+,,,
+"(4,)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,1.5
+2,not center,1,1.5
+,,,
+,,,
+"(1, 2)",,,
+,Cells' score against chosen cell,one,two
+0,Cells' score against chosen cell,one,two
+1,not center,2,1.5
+2,not center,1,1.5
+,,,
+,,,
+"(4, 5)",,,

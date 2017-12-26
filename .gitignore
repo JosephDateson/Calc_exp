@@ -105,3 +105,5 @@ ENV/
 
 #Database
 *.sqlite3
+
+urls.py___jb_old___
