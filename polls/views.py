@@ -18,7 +18,7 @@ from src.pycel.excelcompiler import *
 # from pycel.tokenizer import ExcelParser, f_token, shunting_yard
 # import cPickle
 import logging, sys, time
-import pandas as pd
+#import pandas as pd
 import html5lib
 # import networkx as nx
 DEBUG=True
@@ -482,6 +482,8 @@ def create_html_table(dimensions_matrix,dimensions_rows_categories_names,dimensi
                 if strategy != "best_response":
                     html_string += generate_script_for_strategy(dimensions_matrix,row,col,strategy,dimensions_rows_categories_names,dimensions_columns_categories_names,i,j)
     html_string += HTML_END_TEXT
+    '''
+    pandas
     print "the  array="+str(pd.read_html(html_string))
     print "TABLES="+str(TABLES)
     with open(r'C:\\Users\\Yossi\\Google Drive\\Economics\\Rubinstein\\mysite\\polls\\table2.csv', 'w') as f:
@@ -494,6 +496,7 @@ def create_html_table(dimensions_matrix,dimensions_rows_categories_names,dimensi
                 df.to_csv(f)
                 f.write("\n\n\""+str(strategy)+"\"\n")
         # html_string+= str(pd.read_html(html_string))
+        '''
     return html_string
 def generate_script_for_strategy(dimensions_matrix,row,col,strategy,dimensions_rows_categories_names,dimensions_columns_categories_names,row_index,col_index):
     #Generate a table for each strategy containing lost_to's and payments
