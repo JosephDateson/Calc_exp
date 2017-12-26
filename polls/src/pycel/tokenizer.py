@@ -753,3 +753,44 @@ def shunting_yard(expression):
     #print "Stack is: ", "|".join(stack)
     #print "Ouput is: ", "|".join([x.tvalue for x in output])
     return output
+from networkx.classes.digraph import DiGraph
+def build_ast(expression):
+    """build an AST from an Excel formula expression in reverse polish notation"""
+
+    # use a directed graph to store the tree
+    G = DiGraph()
+
+    stack = []
+
+    for n in expression:
+        # Since the graph does not maintain the order of adding nodes/edges
+        # add an extra attribute 'pos' so we can always sort to the correct order
+        if isinstance(n, OperatorNode):
+            if n.ttype == "operator-infix":
+                arg2 = stack.pop()
+                arg1 = stack.pop()
+                G.add_node(arg1, {'pos': 1})
+                G.add_node(arg2, {'pos': 2})
+                G.add_edge(arg1, n)
+                G.add_edge(arg2, n)
+            else:
+                arg1 = stack.pop()
+                G.add_node(arg1, {'pos': 1})
+                G.add_edge(arg1, n)
+
+        elif isinstance(n, FunctionNode):
+            args = [stack.pop() for _ in range(n.num_args)]
+            args.reverse()
+            for i, a in enumerate(args):
+                G.add_node(a, {'pos': i})
+                G.add_edge(a, n)
+                # for i in range(n.num_args):
+                #    G.add_edge(stack.pop(),n)
+        else:
+            G.add_node(n, {'pos': 0})
+
+        stack.append(n)
+
+    return G, stack.pop()
+
+

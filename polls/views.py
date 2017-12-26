@@ -4,8 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django import forms
 import re
 import itertools
-import pycel
-from pycel.excelcompiler import *
+import src.pycel
+from src.pycel.excelcompiler import *
 # from pycel.excelwrapper import ExcelOpxWrapper as ExcelWrapperImpl
 # import pycel.excellib
 # from pycel.excellib import *
