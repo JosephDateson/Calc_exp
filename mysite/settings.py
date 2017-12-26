@@ -54,11 +54,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
-
+import os
+temp_dir = os.path.join('polls','templates','Final2')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'polls\templates\Final2'],
+        'DIRS': [temp_dir],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
