@@ -5,13 +5,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/static/arrow.css">
+	
 </head>
-<form name="main" action="http://127.0.0.1:8000/polls/calc/" method="post" target="_blank">
+<form name="main" action="http://multi-dim-eq-calc.herokuapp.com/result/" method="post" target="_blank">
 <div class="container">
     <div class="row">
 		
 		<div class="well-title">
-			<h2 align=center>Multidimensional Equilibrium Calculator</h2>
+			<h2 align=center>Multi-Dimensional Equilibrium Calculator</h2>
 		</div>
 	
 		
@@ -21,7 +23,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<b>Strategies</b> 
-							<a href="#" data-toggle="popover" title="Strategies panel" data-content="The strategies can be defined manually or be generated automatically.">
+							<a data-trigger="focus" href="#" data-toggle="popover" title="Strategies panel" data-content="The strategies can be defined manually or be generated automatically.">
 							  <span class="glyphicon glyphicon-question-sign"></span>
 							</a>
 						</div>
@@ -30,44 +32,11 @@
 							$('[data-toggle="popover"]').popover(); 
 						});
 						</script>
+						
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<a data-toggle="collapse" href="#collapse1">
-									<b>Click to manually insert Strategies</B></a>
-								<a href="#" data-toggle="popover" title="How to use the manual panel?" data-content="Enter all possible strategy vectors in your game.">
-							  <span class="glyphicon glyphicon-question-sign"></span>
-							</a>
-							</div>
-
-							
-							<div id="collapse1" class="panel-collapse  collapse">
-								<div class="panel-body">
-								<div class="col-sm-10">
-
-											<div ><b>Insert all strategies in one line</b>
-									</div>
-									
-								</div>
-									<div class="col-sm-2 nopadding">
-
-										<div class="form-group">
-											<h6></h6>
-										</div>
-									</div>
-									<div class="col-sm-12 nopadding">
-
-										<div class="form-group">
-											<input type="text" class="form-control" id="if_cond" name="strategies_vector_single" value="" placeholder="All Vectors: (5) (1,2)">
-										</div>
-									</div>
-
-								</div>	
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<a data-toggle="collapse" href="#collapse2"><b>Strategies generator</B></a>
-								<a href="#" data-toggle="popover" title="How to use the generator?" data-content="The calculator can automatically generate the feasible set of strategies.
+								<a id="accordion_collapse2" class="accordion-toggle" data-toggle="collapse" href="#collapse2"><b>Strategies generator</B></a>
+								<a data-trigger="focus" href="#" data-toggle="popover" title="How to use the generator?" data-content="The calculator can automatically generate the feasible set of strategies.
 n is the length of the strategy vector - enter a natural number that would define the number of coordinates in the strategy vector.
 You can exhaustively define what numbers are allowed as coordinates in the vector or you can set an upper or lower bound in integers.
 It is possible to set constraints on feasible strategies using functions. (see functions tab)
@@ -191,15 +160,49 @@ It is possible to set constraints on feasible strategies using functions. (see f
 
 							</div>
 						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<a id="accordion_collapse1" class="accordion-toggle collapsed" data-toggle="collapse" href="#collapse1" >
+									<b>Click to manually insert Strategies</B></a>
+								<a data-trigger="focus" href="#" data-toggle="popover" title="How to use the manual panel?" data-content="Enter all possible strategy vectors in your game.">
+							  <span class="glyphicon glyphicon-question-sign"></span>
+							</a>
+							</div>
+
+							
+							<div id="collapse1" class="panel-collapse  collapse">
+								<div class="panel-body">
+								<div class="col-sm-10">
+
+											<div ><b>Insert all strategies in one line</b>
+									</div>
+									
+								</div>
+									<div class="col-sm-2 nopadding">
+
+										<div class="form-group">
+											<h6></h6>
+										</div>
+									</div>
+									<div class="col-sm-12 nopadding">
+
+										<div class="form-group">
+											<input type="text" class="form-control" id="if_cond" name="strategies_vector_single" value="" placeholder="All Vectors: (5) (1,2)">
+										</div>
+									</div>
+
+								</div>	
+							</div>
+						</div>
 				   </div>
 				   
 					<div class="panel panel-default">
 				
 						<div class="panel-heading">
-								<a data-toggle="collapse" href="#collapse3">
+								<a id="accordion_collapse3" class="accordion-toggle" data-toggle="collapse" href="#collapse3">
 									<b>Payoff function</B>
 								</a>
-							<a href="#" data-toggle="popover" title="How to use the payoff panel?" data-content="Define the payoffs players receive when each condition is satisfied. Conditions are set using excel or app-specific functions (see functions tab). Specify “otherwise” in the condition if there is a default payoff.
+							<a data-trigger="focus" href="#" data-toggle="popover" title="How to use the payoff panel?" data-content="Define the payoffs players receive when each condition is satisfied. Conditions are set using excel or app-specific functions (see functions tab). Specify “otherwise” in the condition if there is a default payoff.
 							s:= First player's vector,     si:=Index i of vector s; r:= Second player's vector, ri:=Index i of vector r.">
 								  <span class="glyphicon glyphicon-question-sign"></span>
 								</a>
@@ -280,7 +283,7 @@ It is possible to set constraints on feasible strategies using functions. (see f
                     <div class="row">
 			<div class="panel with-nav-tabs panel-default">
 				<div class="panel-heading">
-					<a data-toggle="collapse" href="#collapse4">
+					<a id="accordion_collapse4" class="accordion-toggle" data-toggle="collapse" href="#collapse4">
 						<b>Control panel</B>
 					</a>
 				</div>
@@ -289,9 +292,9 @@ It is possible to set constraints on feasible strategies using functions. (see f
 							<ul class="nav nav-tabs">
 								
 								<li class="active"><a href="#tab1default" data-toggle="tab">A short explanation</a></li>
-								<li><a href="#tab2default" data-toggle="tab">Examples</a></li>
-								<!--<li><a href="#tab3default" data-toggle="tab">Useful functions</a></li>-->
-								<li><a href="#tab4default" data-toggle="tab">Down\upload</a></li>
+								<li><a href="#tab2default" data-toggle="tab">Useful functions</a></li>
+								<li><a href="#tab3default" data-toggle="tab">Save</a></li>
+								<li><a href="#tab4default" data-toggle="tab">Load</a></li>
 								
 							</ul>
 					</div>
@@ -302,9 +305,8 @@ It is possible to set constraints on feasible strategies using functions. (see f
 							The game is defined by the strategies, payoff functions and dimensions you choose. Clicking Calculate! will find any local and global multi-dimensional equilibria for those settings. 
 							The calculator supports basic excel functions. Additional app-specific functions are defined in the functions tab.
 							Notice that you can easily input examples from the paper – Settlements, Blotto, Tennis – in the example tab.
-							</div>
-							<div class="tab-pane fade" id="tab2default">
-								<div class="btn-group">
+							<div class="btn-group" >
+									<br>
 									Press the example you wish to calculate. Its settings will be automatically defined in the calculator. Clicking Calculate! will find any local and global multi-dimensional equilibria for the example.
 								  <br>
 								  <br>
@@ -312,21 +314,33 @@ It is possible to set constraints on feasible strategies using functions. (see f
 								  <button type="button" class="btn btn-info" onClick="load_example('Blotto_loc')">Blotto w\ location</button>
 								  <button type="button" class="btn btn-info" onClick="load_example('Blotto_center')">Blotto w\ center</button>
 								  <button type="button" class="btn btn-info" onClick="load_example('Tennis')">Tennis</button>
+							</div>
+							</div>
+							<div class="tab-pane fade" id="tab2default">
+								functions
+							</div>
+							<div class="tab-pane fade" id="tab3default">
+								<div class="btn-group-vertical">
+									<div class="input-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-download"></span></span>
+											<input id="save_name" type="text" class="form-control" placeholder="Name of file to save e.g. 'my_edited_eq_setup'. Default name:edited_eq_setup.">
+									</div>
+									<button type="button" class="btn btn-primary" onClick="save('inter.html', '<html></html>')" >Save The Filled Cells Now</button>
 								</div>
 							</div>
-							<div class="tab-pane fade" id="tab3default">functions</div>
 							<div class="tab-pane fade" id="tab4default">
 								<div class="btn-group-vertical">
-									<label class="btn btn-default">
-										Browse for your file<input type="file" id="file-input" hidden>
-									</label>	
-									<button id="load_btn" type="button" class="btn btn-danger disabled" >Load Now</button>
 									<div class="input-group">
-											<span class="input-group-addon"><span class="glyphicon glyphicon-download-alt"></span></span>
-											<input id="save_name" type="text" class="form-control" placeholder="Name of file to save e.g. 'my_edited_eq_setup'">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-upload"></span></span>
+											<input id="upload_name" type="text" class="form-control" placeholder="Load a file with the fields' content" disabled>
+											<input type="file" id="file-input" class="hidden">
+											<span class="input-group-btn">
+												<button class="browse btn btn-primary" type="button" onClick="document.getElementById('file-input').click();document.getElementById('file-input').onchange = function () { document.getElementById('upload_name').setAttribute('placeholder', this.value.replace('C:\\fakepath\\', '')); document.getElementById('upload_name').disabled = false;};"><i class="glyphicon glyphicon-search"></i> Browse</button>
+											</span>
 									</div>
-									<button type="button" class="btn btn-primary" onClick="save('inter.html', '<html></html>')" >Download Now</button>
+									<button id="load_btn" type="button" class="btn btn-danger disabled" >Load The Game Now</button>
 								</div>
+								
 							</div>
 						</div>
 						
@@ -338,10 +352,10 @@ It is possible to set constraints on feasible strategies using functions. (see f
                         
                         <div class="panel panel-default">
                             <div class="panel-heading">
-								<a data-toggle="collapse" href="#collapse5">
+								<a id="accordion_collapse5" class="accordion-toggle" data-toggle="collapse" href="#collapse5">
 									<b>Dimensions</B>
 								</a>
-								<a href="#" data-toggle="popover" title="How to use the dimensions panel?" data-content="The calculator supports games with two dimensions - rows and columns. 
+								<a data-trigger="focus" href="#" data-toggle="popover" title="How to use the dimensions panel?" data-content="The calculator supports games with two dimensions - rows and columns. 
 									Each dimension can have multiple categories. Define a name for each category and the condition that needs to be satisfied by a strategy in order to be classified into that category.
 									Conditions are set using excel or app-specific functions (see functions tab). Specify “else” in the condition if there is a default category.
 									If you want to utilize only one-dimension in your game, leave the other dimension’s settings empty.">
@@ -508,9 +522,7 @@ It is possible to set constraints on feasible strategies using functions. (see f
 
 
 
-<script src="/static/add_button.js"></script>
-<script src="/static/curly_brackets.js"></script>
-<script src="/static/load_n_save.js"></script>
+<script src="/static/scripts.js"></script>
 <script>curly_brackets_generation(1.9,"myCanvas");</script>
 <script>curly_brackets_generation(1.9,"myCanvas2");</script>
 <script>curly_brackets_generation(1.9,"myCanvas3");</script>
