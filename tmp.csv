@@ -1,0 +1,30 @@
+This is an exact copy of the top table in the result window
+Partitions of strategies into cells(click to show all strategies),one,two
+center,3*,"(2, 3)*, (3, 4)*"
+not center,"4*, 2*, 5*, 1*","(4, 5)*, (1, 2)*"
+
+These are exact copies of all the possible bottom tables in the result window. Each table has a strategy name above it and the rest is as if this strategy was chosen in the result window.
+
+
+"3"
+Cells' best strategy's score againstchosen cell,one,two
+center,Best Response:3 Score=0.0,"Best Response:(2, 3) Score=0.0"
+not center,Best Response:4 Score=2.0,"Best Response:(4, 5) Score=3.0"
+
+
+"(2, 3)"
+Cells' best strategy's score againstchosen cell,one,two
+center,Best Response:3 Score=0.0,"Best Response:(2, 3) Score=0.0"
+not center,Best Response:1 Score=2.0,"Best Response:(4, 5) Score=1.5"
+
+
+"4"
+Cells' best strategy's score againstchosen cell,one,two
+center,Best Response:3 Score=2.0,"Best Response:(2, 3) Score=2.25"
+not center,Best Response:4 Score=1.5,"Best Response:(4, 5) Score=1.5"
+
+
+"(4, 5)"
+Cells' best strategy's score againstchosen cell,one,two
+center,Best Response:3 Score=2.0,"Best Response:(2, 3) Score=1.5"
+not center,Best Response:4 Score=1.0,"Best Response:(4, 5) Score=1.5"
